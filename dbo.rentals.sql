@@ -12,10 +12,10 @@ GO
 
 CREATE TABLE dbo.rentals (
     rental_id INT IDENTITY(1,1) PRIMARY KEY,
-    first_name NVARCHAR(50) NOT NULL,
-    last_name NVARCHAR(50) NOT NULL,
-    phone NVARCHAR(20) NOT NULL UNIQUE,
-    email NVARCHAR(100) NOT NULL UNIQUE,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
     rental_start DATETIME NOT NULL,
     rental_end DATETIME NOT NULL,
     amount DECIMAL(8,2) NOT NULL,
