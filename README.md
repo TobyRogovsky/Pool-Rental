@@ -11,24 +11,24 @@ This project contains a simple SQL schema used to track customers and earnings f
 - Scripts can be executed repeatedly by including `DROP` and `USE` statements
 
 ## Usage
-Run the `pool_rental.sql` script on a MySQL server to create the database and table:
+Run the `pool_rental.sql` script on a SQL Server instance to create the database and table using the `dbo` schema:
 
 ```bash
-mysql -u <user> -p < pool_rental.sql
+sqlcmd -S <server> -d master -i pool_rental.sql
 ```
 
-This will create a `pool_rental` database with a single `rentals` table. Each row includes customer contact details, the rental period, and the amount earned.
+This will create a `pool_rental` database with a single `dbo.rentals` table. Each row includes customer contact details, the rental period, and the amount earned.
 
 After creating the schema, seed it with example rentals by running:
 
 ```bash
-mysql -u <user> -p < seed_data.sql
+sqlcmd -S <server> -d pool_rental -i seed_data.sql
 ```
 
 You can calculate total earnings with:
 
 ```sql
-SELECT SUM(amount) AS total_earnings FROM rentals;
+SELECT SUM(amount) AS total_earnings FROM dbo.rentals;
 ```
 
 ## Reports

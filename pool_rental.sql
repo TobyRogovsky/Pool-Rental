@@ -1,18 +1,28 @@
-DROP DATABASE IF EXISTS pool_rental;
+IF DB_ID('pool_rental') IS NOT NULL
+    DROP DATABASE pool_rental;
+GO
 CREATE DATABASE pool_rental;
+GO
 USE pool_rental;
+GO
 
-CREATE TABLE rentals (
-    rental_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    phone VARCHAR(20) UNIQUE NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
+IF OBJECT_ID('dbo.rentals','U') IS NOT NULL
+    DROP TABLE dbo.rentals;
+GO
+
+CREATE TABLE dbo.rentals (
+    rental_id INT IDENTITY(1,1) PRIMARY KEY,
+    first_name NVARCHAR(50) NOT NULL,
+    last_name NVARCHAR(50) NOT NULL,
+    phone NVARCHAR(20) NOT NULL UNIQUE,
+    email NVARCHAR(100) NOT NULL UNIQUE,
     rental_start DATETIME NOT NULL,
     rental_end DATETIME NOT NULL,
     amount DECIMAL(8,2) NOT NULL,
     CONSTRAINT chk_rental_time CHECK (rental_end > rental_start)
 );
+GO
 
 -- Example query to view total earnings
--- SELECT SUM(amount) AS total_earnings FROM rentals;
+-- SELECT SUM(amount) AS total_earnings FROM dbo.rentals;
+GO
