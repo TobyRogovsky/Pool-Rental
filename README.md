@@ -11,10 +11,10 @@ This project contains a simple SQL schema used to track customers and earnings f
 - Scripts can be executed repeatedly by including `DROP` and `USE` statements
 
 ## Usage
-Run the `pool_rental.sql` script on a SQL Server instance to create the database and table using the `dbo` schema:
+Run the `dbo.rentals.sql` script on a SQL Server instance to create the database and table using the `dbo` schema:
 
 ```bash
-sqlcmd -S <server> -d master -i pool_rental.sql
+sqlcmd -S <server> -d master -i dbo.rentals.sql
 ```
 
 This will create a `pool_rental` database with a single `dbo.rentals` table. Each row includes customer contact details, the rental period, and the amount earned.

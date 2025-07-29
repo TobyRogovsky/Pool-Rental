@@ -1,5 +1,5 @@
 -- Example reporting queries for the pool_rental database
--- These assume the pool_rental.sql script has been run and the rentals table exists.
+-- These assume the dbo.rentals.sql script has been run and the rentals table exists.
 
 -- 1. Total earnings
 SELECT SUM(amount) AS total_earnings FROM dbo.rentals;
