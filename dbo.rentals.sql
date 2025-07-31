@@ -20,7 +20,11 @@ CREATE TABLE dbo.rentals (
     rental_end DATETIME NOT NULL,
     amount DECIMAL(8,2) NOT NULL,
     CONSTRAINT chk_rental_time CHECK (rental_end > rental_start),
-    CONSTRAINT chk_amount_positive CHECK (amount > 0)
+    CONSTRAINT chk_amount_positive CHECK (amount > 0),
+    CONSTRAINT chk_first_name_nonblank CHECK (LEN(LTRIM(RTRIM(first_name))) > 0),
+    CONSTRAINT chk_last_name_nonblank CHECK (LEN(LTRIM(RTRIM(last_name))) > 0),
+    CONSTRAINT chk_phone_nonblank CHECK (LEN(LTRIM(RTRIM(phone))) > 0),
+    CONSTRAINT chk_email_nonblank CHECK (LEN(LTRIM(RTRIM(email))) > 0)
 );
 GO
 

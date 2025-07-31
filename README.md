@@ -7,7 +7,8 @@ This project contains a simple SQL schema used to track customers and earnings f
 - Primary key for the table
 - Descriptive column names
 - `NOT NULL` constraints where appropriate
-- Additional constraints (such as unique phone numbers) and a check on rental times
+- Additional constraints (such as unique phone numbers), a check on rental times,
+  and checks that contact fields are not blank and amounts are positive
 - Scripts can be executed repeatedly by including `DROP` and `USE` statements
 
 ## Usage
